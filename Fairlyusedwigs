@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Wig Selling Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 300px; margin: 0 auto; padding: 20px; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; }
+        #result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Used Wig Selling Calculator</h2>
+    <input type="number" id="sellingPrice" placeholder="Enter selling price">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            const sellingPrice = parseFloat(document.getElementById('sellingPrice').value);
+            if (isNaN(sellingPrice) || sellingPrice < 0) {
+                alert('Please enter a valid positive number.');
+                return;
+            }
+            const deduction = sellingPrice * 0.20;
+            const earnings = sellingPrice - deduction;
+            
+            document.getElementById('result').innerHTML = `
+                Selling price: $${sellingPrice.toFixed(2)}<br>
+                20% deduction: $${deduction.toFixed(2)}<br>
+                Your earnings: $${earnings.toFixed(2)}
+            `;
+        }
+    </script>
+</body>
+</html>
